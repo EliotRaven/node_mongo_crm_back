@@ -10,7 +10,7 @@ const schema = new Schema({
   password: { type: String, required: true },
   token: { type: String },
   role_id: { type: String },
-  image: { type: String, default: path.resolve(__dirname) + '/public/image/User_icon_BLACK-01.png' },
+  image: { type: String, default: 'https://openclipart.org/download/247324/abstract-user-flat-1.svg' },
   createdDate: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 });

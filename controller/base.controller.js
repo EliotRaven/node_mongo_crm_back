@@ -1,4 +1,4 @@
-class ResourceController {
+class BaseController {
   constructor(params){
     this.service = params.service
 
@@ -40,4 +40,4 @@ class ResourceController {
   }
 }
 
-module.exports = ResourceController
+module.exports = BaseController

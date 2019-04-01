@@ -1,6 +1,5 @@
-const { CommentController } = require('../controller/index')
+const CommentController     = require('./comment.controller')
 const express               = require('express');
-
 const router                = express.Router();
 
 router.get('/', CommentController.index);

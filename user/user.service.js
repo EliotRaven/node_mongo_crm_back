@@ -1,18 +1,11 @@
-const {UserModel} = require('../database/index')
-const BaseService = require('./base.service')
+const { UserModel } = require('../database/index')
+const BaseService = require('../service/base.service')
 const bcrypt      = require('bcryptjs');
 
 class UserService extends BaseService {
   constructor(){
     super({model: UserModel})
-    this.userModel = UserModel
-    this.articleAuthor = this.articleAuthor.bind(this)
   }
-
-  async articleAuthor(articles_id) {
-    return await this.userModel.find({_id: articles_id})
-  }
-
   async create(data){
     const salt = bcrypt.genSaltSync(10);
     const password = bcrypt.hashSync(data.password, salt);
@@ -22,6 +15,8 @@ class UserService extends BaseService {
   }
 
   async update(id, data){
+    if(!data.password) return await this.model.findByIdAndUpdate(id, data, {new: true})
+
     const salt = bcrypt.genSaltSync(10);
     const password = bcrypt.hashSync(data.password, salt);
 
@@ -29,4 +24,4 @@ class UserService extends BaseService {
   }
 }
 
-module.exports = UserService
+module.exports = new UserService()

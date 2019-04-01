@@ -7,8 +7,8 @@ const app            = express();
 const cors           = require('cors');
 const errorHandler   = require('./helper/error.handler');
 const router         = require('./routes')
-const authRouter     = require('./routes/auth.route')
-const authMiddleware = require('./middlewares/auth.middleware')
+
+const Auth = require('./auth')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -20,9 +20,8 @@ app.use((req,res,next) => {
   next()
 })
 
-app.use('/api/v1', authMiddleware, router);
-// app.use('/api/v1', router);
-app.use('/auth', authRouter);
+app.use('/api/v1', Auth.AuthMiddleware, router);
+app.use('/auth', Auth.AuthRoutes);
 
 app.use((req,res,next) => {
   res.status(404).json('Not found')

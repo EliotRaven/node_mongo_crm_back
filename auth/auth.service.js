@@ -1,11 +1,9 @@
 const {UserModel, UserSessionModel} = require('../database/index');
 const { randomBytes } = require('crypto');
-const BaseService = require('./base.service')
-const bcrypt      = require('bcryptjs')
+const bcrypt      = require('bcryptjs');
 
-class AuthService extends BaseService {
+class AuthService {
   constructor(){
-    super({model: UserModel})
     this.user = UserModel
     this.session = UserSessionModel
   }
@@ -33,4 +31,4 @@ class AuthService extends BaseService {
   }
 }
 
-module.exports = AuthService
+module.exports = new AuthService()

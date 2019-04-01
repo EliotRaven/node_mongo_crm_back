@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const ArticleRouter = require('./article.route');
-const UserRouter = require('./user.route');
-const RoleRouter = require('./role.route');
-const CommentRouter = require('./comment.route');
-const StatisticRouter = require('./statistic.route');
+const User = require('../user')
+const Role = require('../role')
+const Article = require('../article')
+const Comment = require('../comment')
+const Statistic = require('../statistic')
 
-router.use('/article', ArticleRouter)
-router.use('/user', UserRouter)
-router.use('/role', RoleRouter)
-router.use('/comment', CommentRouter)
-router.use('/statistic', StatisticRouter)
+router.use('/article', Article.ArticleRoutes)
+router.use('/user', User.UserRoutes)
+router.use('/role', Role.RoleRoutes)
+router.use('/comment', Comment.CommentRoutes)
+router.use('/statistic', Statistic.StatisticRoutes)
 
 module.exports = router;

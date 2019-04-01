@@ -1,6 +1,5 @@
-const { RoleController } = require('../controller/index')
+const RoleController     = require('./role.controller')
 const express            = require('express');
-
 const router             = express.Router();
 
 router.get('/', RoleController.index);

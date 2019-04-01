@@ -1,6 +1,5 @@
-const {ArticleController} = require('../controller/index')
+const ArticleController   = require('./article.controller')
 const express             = require('express');
-
 const router              = express.Router();
 
 router.get('/', ArticleController.index);

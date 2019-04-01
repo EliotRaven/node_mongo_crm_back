@@ -16,7 +16,7 @@ const authMiddleware = async (req, res, next) => {
   const user = await UserModel.findOne({_id: session.user_id});
 
   if (!user) {
-    return next(new Error('You must be logged in to view this page.'));
+    return next(new Error('This user are not created'));
   }
 
   req.user = user;
