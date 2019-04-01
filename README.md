@@ -1,4 +1,4 @@
 # node_mongo_crm_back
 
-... yarn
-... yarn dev
+..* yarn
+..* yarn dev
