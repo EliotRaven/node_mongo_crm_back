@@ -1,4 +1,4 @@
-const {UserModel, ArticleModel, CommentModel} = require('../database/index')
+const { UserModel, ArticleModel, CommentModel } = require('../database/index')
 const moment = require('moment')
 
 class StatisticService {
@@ -50,4 +50,4 @@ class StatisticService {
   }
 }
 
-module.exports = StatisticService
+module.exports = new StatisticService()
