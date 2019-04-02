@@ -5,6 +5,8 @@ const bodyParser     = require('body-parser');
 const cookieParser   = require('cookie-parser');
 const app            = express();
 const cors           = require('cors');
+const compression    = require('compression')
+const helmet         = require('helmet')
 const errorHandler   = require('./helper/error.handler');
 const router         = require('./routes')
 
@@ -14,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
+app.use(compression());
+app.use(helmet());
 
 app.use((req,res,next) => {
   console.info(`${req.method} ${req.originalUrl}`)
