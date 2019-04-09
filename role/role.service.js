@@ -8,7 +8,7 @@ class RoleService extends BaseService {
 
   async create (data) {
     let lastIndex = await this.model.findOne().sort({id: -1})
-    let role = new this.model({...data, id: lastIndex.id+1})
+    let role = new this.model({...data, id: !lastIndex ? 1 : lastIndex.id+1})
     return await role.save()
   }
 }
